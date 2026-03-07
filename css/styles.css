@@ -1,0 +1,309 @@
+@charset "UTF-8";
+
+/* Global values */
+:root{
+  --panel: rgba(255,255,255,0.72);
+  --panel2: rgba(255,255,255,0.86);
+  --text: #111827;          /* near-black */
+  --muted: rgba(17,24,39,0.65);
+  --line: rgba(17,24,39,0.10);
+
+  --bg: #ffffff;			/* white */
+  --accent: #FFCCE8;        /* pink */
+  --accent2: #6ee7ff;       /* icy blue */
+}
+
+/* Body */
+body {
+	font-family: source-sans-pro;
+	background-color: #f2f2f2; /* baby blue */
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	font-style: normal;
+	font-weight: 200;
+}
+html, body {
+  height: 100%; /* Ensure html and body take full height */
+  margin: 0;
+}
+
+.site-wrapper {
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* Header/footer sized by content, main takes remaining space */
+  min-height: 100vh; /* Wrapper is at least the height of the viewport */
+}
+/* Container */
+.container {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+/* Navigation */
+.custom-nav{
+	width: 100%;
+	background-color:#FFCCE8;
+	border-bottom: 1px solid #000000;
+}
+/*
+header {
+	width: 100%;
+	height: 50px;
+	background-color: #FFCCE8;
+	border-bottom: 1px solid #000000;
+}
+*/
+.logo {
+	color: #fff;
+	font-weight: bold;
+	text-align: undefined;
+	width: 10%;
+	float: left;
+	margin-top: 15px;
+	margin-left: 25px;
+	letter-spacing: 4px;
+}
+nav {
+	float: right;
+	width: 50%;
+	text-align: right;
+}
+header nav ul {
+	list-style: none;
+	float: right;
+}
+nav ul li {
+	float: left;
+	color: #FFFFFF;
+	font-size: 14px;
+	text-align: left;
+	margin-right: 25px;
+	letter-spacing: 2px;
+	font-weight: bold;
+	transition: all 0.3s linear;
+}
+ul li a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+ul li:hover a {
+	color: #2C9AB7;
+}
+
+
+/* HERO */
+.hero{
+  position: relative;
+  padding: 5.5rem 0 2rem;
+}
+
+.hero::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hero-card{
+  border-radius: var(--radius-xl);
+  border: none;
+  background: transparent;
+  backdrop-filter: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+.hero h1{
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.hero p{
+  color: var(--ink2);
+}
+
+.hero-cta .btn{
+  border-radius: 999px;
+  padding: 12px 16px;
+  font-weight: 700;
+}
+
+.btn-kremo{
+  border: 1px solid rgba(16,24,40,0.14);
+  background: rgba(255,255,255,0.80);
+  box-shadow: var(--shadow2);
+}
+
+.btn-kremo-primary{
+  border: 5px solid rgba(16,24,40,0.10);
+  background: linear-gradient(135deg, rgba(255,204,232,0.95), rgba(205, 247, 255, 0.75));
+  color: rgba(16,24,40,0.92);
+  box-shadow: var(--shadow2);
+}
+
+.btn-kremo-primary:hover,
+.btn-kremo:hover{
+  filter: brightness(1.02);
+  transform: translateY(-1px);
+}
+
+/* Truck image interactivity */
+.truck-stage{
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 500px;
+}
+
+.truck-img{
+  width: 100%;
+  max-width: 1050px;
+  height: auto;
+  transform-origin: center;
+  will-change: transform;
+  animation: floaty 5.5s ease-in-out infinite;
+  filter: drop-shadow(0 28px 24px rgba(16,24,40,0.22));
+}
+
+@keyframes floaty{
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.sparkles{
+  position: absolute;
+  inset: -40px;
+  pointer-events: none;
+  opacity: 0.45;
+  background:
+    radial-gradient(circle at 18% 28%, rgba(255,255,255,0.95) 0 1px, transparent 2px),
+    radial-gradient(circle at 44% 18%, rgba(255,255,255,0.85) 0 1px, transparent 2px),
+    radial-gradient(circle at 76% 22%, rgba(255,255,255,0.80) 0 1px, transparent 2px),
+    radial-gradient(circle at 70% 64%, rgba(255,255,255,0.78) 0 1px, transparent 2px),
+    radial-gradient(circle at 30% 74%, rgba(255,255,255,0.88) 0 1px, transparent 2px);
+  background-size: 240px 240px, 260px 260px, 220px 220px, 280px 280px, 300px 300px;
+}
+
+.panel{
+  padding: 18px;
+  border: none;
+  border-radius: var(--radius-lg);
+  background: transparent;
+  box-shadow: none;
+}
+
+.panel-soft{
+  padding: 18px;
+  border: 1px solid rgba(16,24,40,0.10);
+  border-radius: var(--radius-lg);
+  background: rgba(255,255,255,0.92);
+  box-shadow: var(--shadow2);
+  cursor: pointer;
+  transition: transform .14s ease, box-shadow .14s ease;
+}
+
+.k-card:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(16,24,40,0.12);
+}
+
+.panel-soft:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(16,24,40,0.14);
+}
+
+.k-card{
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(16,24,40,0.10);
+  background: rgba(255,255,255,0.92);
+  box-shadow: 0 10px 22px rgba(16,24,40,0.08);
+  padding: 18px;
+  transition: transform .14s ease, box-shadow .14s ease;
+}
+
+.k-card:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(16,24,40,0.12);
+}
+
+
+.k-icon{
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: rgba(255,204,232,0.70);
+  border: 1px solid rgba(16,24,40,0.10);
+}
+
+.divider{ height: 1px; background: var(--line); margin: 16px 0; }
+.text-muted-neo{ color: rgba(16,24,40,0.66) !important; }
+
+/* Page Content */
+.pageContent{
+	background-color: #6ee7ff;
+	width: 100%;
+	overflow: auto;
+/*	TODO: Debating whether or not to add line below */
+/*	current problem is a page without enough content will have white space at the bottom */
+/*	adding this line makes the blue extend all the way no matter what, but theres still a lot of empty space in the blue */
+/*	min-height: 100vh;*/
+}
+
+/* Footer */
+footer {
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+	background-color: #DCC89D;
+	height: 300px;
+}
+.footer {
+	display: flex;
+	justify-content: space-around;
+	bottom: 0;
+}
+.panel{
+  border: 1px solid var(--line);
+  background: var(--panel);
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: 0 18px 45px rgba(17,24,39,0.08);
+}
+
+.divider{
+  height: 1px;
+  background: var(--line);
+  margin: 14px 0;
+}
+
+.text-muted-neo{ color: var(--muted) !important; }
+
+.panel-soft{
+  border: 1px solid var(--line);
+  background: var(--panel2);
+  border-radius: 18px;
+  padding: 16px;
+}
+
+.right-float {
+	float: right;
+}
+
+/* Toast */
+.toast{
+  border: 1px solid var(--line) !important;
+  background: rgba(255,255,255,0.90) !important;
+  color: rgba(17,24,39,0.95) !important;
+  backdrop-filter: blur(10px);
+}
+
+.carousel-caption {
+	color: #FFFFFF;
+	-webkit-text-stroke: 1px black;
+	top: 0;
+	bottom: auto;
+}
